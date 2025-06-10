@@ -1,0 +1,106 @@
+[
+  {
+  "jobName": "teamcenterReportDB",
+  "type": "file",
+  "source": "I:\\FileBackups_WritedToTape\\MSSQL\\TCDB\\full\\ReportDB",
+  "retentionPolicy": {
+      "days": 14,
+      "weeks": 4,
+      "months": 12,
+      "years": 5
+    }
+  },
+  {
+  "jobName": "teamcenterTC",
+  "type": "file",
+  "source": "I:\\FileBackups_WritedToTape\\MSSQL\\TCDB\\full\\TC",
+  "retentionPolicy": {
+      "days": 14,
+      "weeks": 4,
+      "months": 12,
+      "years": 5
+    }
+  },
+  {
+  "jobName": "teamcenterTcClusterDB",
+  "type": "file",
+  "source": "I:\\FileBackups_WritedToTape\\MSSQL\\TCDB\\full\\TcClusterDB",
+  "retentionPolicy": {
+      "days": 14,
+      "weeks": 4,
+      "months": 12,
+      "years": 5
+    }
+  },
+  {
+  "jobName": "XenDesktop",
+  "type": "file",
+  "source": "I:\\FileBackups_WritedToTape\\MSSQL\\DB-SQL\\full\\XenDesktop",
+  "retentionPolicy": {
+      "days": 7,
+      "weeks": 4
+    }
+  },
+  {
+  "jobName": "HanaScm",
+  "type": "folder",
+  "source": "I:\\FileBackups_WritedToTape\\HANA\\hana-scm\\full",
+  "retentionPolicy": {
+      "days": 7,
+      "weeks": 4,
+      "months": 6,
+      "years": 1
+    }
+  },
+  {
+  "jobName": "BSE",
+  "type": "file",
+  "source": "I:\\FileBackups_WritedToTape\\MSSQL\\BSE\\full\\process_architect_azimut",
+  "retentionPolicy": {
+      "weeks": 4,
+      "months": 6,
+      "years": 5
+    }
+  },
+  {
+  "jobName": "AbbyyFlexi",
+  "type": "file",
+  "source": "I:\\FileBackups_WritedToTape\\MSSQL\\MHK-ABBYY-FLEXI\\full\\FLEX",
+  "retentionPolicy": {
+      "days": 7,
+      "weeks": 4,
+      "months": 6,
+      "years": 1
+    }
+  },
+  {
+  "jobName": "ELMA",
+  "type": "file",
+  "source": "I:\\FileBackups_WritedToTape\\MSSQL\\KLG-DB-SQL01\\full\\ELMA3",
+  "retentionPolicy": {
+      "days": 14,
+      "weeks": 4,
+      "months": 12,
+      "years": 5
+    }
+  },
+  {
+  "jobName": "SAPCONTENTSRV",
+  "type": "file",
+  "source": "I:\\FileBackups_WritedToTape\\MaxDB\\SAPCONTENTSRV\\full",
+  "retentionPolicy": {
+      "days": 14,
+      "weeks": 4,
+      "months": 12,
+      "years": 5
+    }
+  },
+  {
+  "jobName": "SAPCONTENTSRV",
+  "type": "file",
+  "source": "I:\\FileBackups_WritedToTape\\MaxDB\\ADS\\full",
+  "retentionPolicy": {
+      "months": 3
+    }
+  }
+]
