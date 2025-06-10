@@ -43,7 +43,18 @@
 
 # Подключение конфигурации
 $configPath = 'C:\scripts\Thinning\retentionPolicy.json'
-$jobsConfig = Get-Content -Raw -Path $configPath | ConvertFrom-Json
+
+if (!(Test-Path $configPath)) {
+    Write-Error "Файл конфигурации retentionPolicy.json не найден!"
+    exit
+}
+
+try {
+    $jobsConfig = Get-Content -Raw -Path $configPath | ConvertFrom-Json
+} catch {
+    Write-Error "Ошибка чтения конфигурационного файла: $_"
+    exit
+}
 
 foreach ($job in $jobsConfig) {
     # Загружаем данные из конфига
