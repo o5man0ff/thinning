@@ -1,7 +1,6 @@
 ﻿# Сценарий прореживания бэкапов с конечными объектами в виде файлов или бэкапов
 #
 # Giga.chat и mao 2025
-# v1.0
 #
 # Структура JSON файла (образец):
 #
@@ -85,12 +84,23 @@ foreach ($job in $jobsConfig) {
     $keptItems = @()
     $itemsForDeletion = @()
 
-    # ЕСЛИ СУЩЕСТВУЕТ ПОЛИТИКА "DAILY": отсчитываются первые N файлов/папок и добавляются в список сохраняемых
+    # ЕСЛИ СУЩЕСТВУЕТ ПОЛИТИКА "DAILY": отсчитываются первые N групп (группировка по дням) и содержимое этих групп добавляется в список сохраняемых
+    # Определяем группы уникальных дней и ограничиваем выборку по числу дней
     if ($null -ne $policyDays -and $policyDays -gt 0) {
         Write-Verbose "Применяем правило DAYS..." -Verbose
-        $dailyItems = $items | Select-Object -First $policyDays
-        $keptItems += $dailyItems
+
+        # Формируем группы по уникальным дням (LastWriteTime), сортируем по убыванию свежести
+        $groupedByDay = $items | Group-Object { $_.LastWriteTime.Date } | Sort-Object Name -Descending
+
+        # Выбираем только первые N групп (дней)
+        $selectedGroups = $groupedByDay | Select-Object -First $policyDays
+
+        # Собираем все объекты из выбранных групп
+        foreach ($group in $selectedGroups) {
+            $keptItems += $group.Group
+        }
     }
+
 
     # ЕСЛИ СУЩЕСТВУЕТ ПОЛИТИКА "WEEKS": 
     if ($null -ne $policyWeeks -and $policyWeeks -gt 0) {
